@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-GMM-0.1";
 const contentToCache = [
     "Build/build.loader.js",
-    "Build/build.framework.js.unityweb",
-    "Build/build.data.unityweb",
-    "Build/build.wasm.unityweb",
+    "Build/build.framework.js",
+    "Build/build.data",
+    "Build/build.wasm",
     "TemplateData/style.css"
 
 ];
