@@ -1,4 +1,4 @@
-const cacheName = "DefaultCompany-GMM-0.1.2";
+const cacheName = "DefaultCompany-GMM-0.1.3";
 const contentToCache = [
     "Build/build.loader.js",
     "Build/build.framework.js",
