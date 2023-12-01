@@ -1,4 +1,4 @@
-const cacheName = "Urnique Studio-GMM-0.3.1";
+const cacheName = "Urnique Studio-GMM-0.3.2";
 const contentToCache = [
     "Build/Builds.loader.js",
     "Build/Builds.framework.js",
