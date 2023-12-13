@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | GMM</title>
+    <title>GMM | Dialogue Editor</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
@@ -57,16 +57,33 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Builds.loader.js";
+      var loaderUrl = buildUrl + "/build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Builds.data",
-        frameworkUrl: buildUrl + "/Builds.framework.js",
-        codeUrl: buildUrl + "/Builds.wasm",
+        dataUrl: buildUrl + "/build.data",
+        frameworkUrl: buildUrl + "/build.framework.js",
+        codeUrl: buildUrl + "/build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Urnique Studio",
         productName: "GMM",
-        productVersion: "0.3.2",
+        productVersion: "0.4.0",
         showBanner: unityShowBanner,
+        cacheControl: function (url) {
+          // Caching enabled for .data and .bundle files.
+          // Revalidate if file is up to date before loading from cache
+          if (url.match(/\.data/) || url.match(/\.bundle/)) {
+            return "no-store";
+          }
+
+          // Caching enabled for .mp4 and .custom files
+          // Load file from cache without revalidation.
+          if (url.match(/\.mp4/) || url.match(/\.custom/)) {
+            return "immutable";
+          }
+
+          // Disable explicit caching for all other files.
+          // Note: the default browser cache may cache them anyway.
+          return "no-store";
+        },
       };
 
       // By default Unity keeps WebGL canvas render target size matched with
